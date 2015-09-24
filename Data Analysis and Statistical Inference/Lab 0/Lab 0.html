@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>#&lt;!&ndash; rmarkdown v1 &ndash;&gt;</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<h2>#&lt;!&ndash; rmarkdown v1 &ndash;&gt;</h2>
+
+<p>title: &ldquo;Data Analysis and Statistical Inference - Lab 0&rdquo;
+author: &ldquo;Baskaran Viswanathan&rdquo;
+date: &ldquo;September 24, 2015&rdquo;</p>
+
+<h2>output: html_document</h2>
+
+<pre><code class="r">source(&quot;http://www.openintro.org/stat/data/present.R&quot;)
+
+# To look at the data
+
+present
+</code></pre>
+
+<pre><code>##    year    boys   girls
+## 1  1940 1211684 1148715
+## 2  1941 1289734 1223693
+## 3  1942 1444365 1364631
+## 4  1943 1508959 1427901
+## 5  1944 1435301 1359499
+## 6  1945 1404587 1330869
+## 7  1946 1691220 1597452
+## 8  1947 1899876 1800064
+## 9  1948 1813852 1721216
+## 10 1949 1826352 1733177
+## 11 1950 1823555 1730594
+## 12 1951 1923020 1827830
+## 13 1952 1971262 1875724
+## 14 1953 2001798 1900322
+## 15 1954 2059068 1958294
+## 16 1955 2073719 1973576
+## 17 1956 2133588 2029502
+## 18 1957 2179960 2074824
+## 19 1958 2152546 2051266
+## 20 1959 2173638 2071158
+## 21 1960 2179708 2078142
+## 22 1961 2186274 2082052
+## 23 1962 2132466 2034896
+## 24 1963 2101632 1996388
+## 25 1964 2060162 1967328
+## 26 1965 1927054 1833304
+## 27 1966 1845862 1760412
+## 28 1967 1803388 1717571
+## 29 1968 1796326 1705238
+## 30 1969 1846572 1753634
+## 31 1970 1915378 1816008
+## 32 1971 1822910 1733060
+## 33 1972 1669927 1588484
+## 34 1973 1608326 1528639
+## 35 1974 1622114 1537844
+## 36 1975 1613135 1531063
+## 37 1976 1624436 1543352
+## 38 1977 1705916 1620716
+## 39 1978 1709394 1623885
+## 40 1979 1791267 1703131
+## 41 1980 1852616 1759642
+## 42 1981 1860272 1768966
+## 43 1982 1885676 1794861
+## 44 1983 1865553 1773380
+## 45 1984 1879490 1789651
+## 46 1985 1927983 1832578
+## 47 1986 1924868 1831679
+## 48 1987 1951153 1858241
+## 49 1988 2002424 1907086
+## 50 1989 2069490 1971468
+## 51 1990 2129495 2028717
+## 52 1991 2101518 2009389
+## 53 1992 2082097 1982917
+## 54 1993 2048861 1951379
+## 55 1994 2022589 1930178
+## 56 1995 1996355 1903234
+## 57 1996 1990480 1901014
+## 58 1997 1985596 1895298
+## 59 1998 2016205 1925348
+## 60 1999 2026854 1932563
+## 61 2000 2076969 1981845
+## 62 2001 2057922 1968011
+## 63 2002 2057979 1963747
+</code></pre>
+
+<pre><code class="r"># To print out the data
+
+print(present)
+</code></pre>
+
+<pre><code>##    year    boys   girls
+## 1  1940 1211684 1148715
+## 2  1941 1289734 1223693
+## 3  1942 1444365 1364631
+## 4  1943 1508959 1427901
+## 5  1944 1435301 1359499
+## 6  1945 1404587 1330869
+## 7  1946 1691220 1597452
+## 8  1947 1899876 1800064
+## 9  1948 1813852 1721216
+## 10 1949 1826352 1733177
+## 11 1950 1823555 1730594
+## 12 1951 1923020 1827830
+## 13 1952 1971262 1875724
+## 14 1953 2001798 1900322
+## 15 1954 2059068 1958294
+## 16 1955 2073719 1973576
+## 17 1956 2133588 2029502
+## 18 1957 2179960 2074824
+## 19 1958 2152546 2051266
+## 20 1959 2173638 2071158
+## 21 1960 2179708 2078142
+## 22 1961 2186274 2082052
+## 23 1962 2132466 2034896
+## 24 1963 2101632 1996388
+## 25 1964 2060162 1967328
+## 26 1965 1927054 1833304
+## 27 1966 1845862 1760412
+## 28 1967 1803388 1717571
+## 29 1968 1796326 1705238
+## 30 1969 1846572 1753634
+## 31 1970 1915378 1816008
+## 32 1971 1822910 1733060
+## 33 1972 1669927 1588484
+## 34 1973 1608326 1528639
+## 35 1974 1622114 1537844
+## 36 1975 1613135 1531063
+## 37 1976 1624436 1543352
+## 38 1977 1705916 1620716
+## 39 1978 1709394 1623885
+## 40 1979 1791267 1703131
+## 41 1980 1852616 1759642
+## 42 1981 1860272 1768966
+## 43 1982 1885676 1794861
+## 44 1983 1865553 1773380
+## 45 1984 1879490 1789651
+## 46 1985 1927983 1832578
+## 47 1986 1924868 1831679
+## 48 1987 1951153 1858241
+## 49 1988 2002424 1907086
+## 50 1989 2069490 1971468
+## 51 1990 2129495 2028717
+## 52 1991 2101518 2009389
+## 53 1992 2082097 1982917
+## 54 1993 2048861 1951379
+## 55 1994 2022589 1930178
+## 56 1995 1996355 1903234
+## 57 1996 1990480 1901014
+## 58 1997 1985596 1895298
+## 59 1998 2016205 1925348
+## 60 1999 2026854 1932563
+## 61 2000 2076969 1981845
+## 62 2001 2057922 1968011
+## 63 2002 2057979 1963747
+</code></pre>
+
+<pre><code class="r"># dimensions of this data frame
+
+dim(present)
+</code></pre>
+
+<pre><code>## [1] 63  3
+</code></pre>
+
+<pre><code class="r"># The names of columns
+
+names(present)
+</code></pre>
+
+<pre><code>## [1] &quot;year&quot;  &quot;boys&quot;  &quot;girls&quot;
+</code></pre>
+
+<pre><code class="r"># This will print your data set in the console:
+
+head(present)
+</code></pre>
+
+<pre><code>##   year    boys   girls
+## 1 1940 1211684 1148715
+## 2 1941 1289734 1223693
+## 3 1942 1444365 1364631
+## 4 1943 1508959 1427901
+## 5 1944 1435301 1359499
+## 6 1945 1404587 1330869
+</code></pre>
+
+<pre><code class="r"># To access the data in a single column of a data frame separately
+
+present$boys
+</code></pre>
+
+<pre><code>##  [1] 1211684 1289734 1444365 1508959 1435301 1404587 1691220 1899876
+##  [9] 1813852 1826352 1823555 1923020 1971262 2001798 2059068 2073719
+## [17] 2133588 2179960 2152546 2173638 2179708 2186274 2132466 2101632
+## [25] 2060162 1927054 1845862 1803388 1796326 1846572 1915378 1822910
+## [33] 1669927 1608326 1622114 1613135 1624436 1705916 1709394 1791267
+## [41] 1852616 1860272 1885676 1865553 1879490 1927983 1924868 1951153
+## [49] 2002424 2069490 2129495 2101518 2082097 2048861 2022589 1996355
+## [57] 1990480 1985596 2016205 2026854 2076969 2057922 2057979
+</code></pre>
+
+<p>#Question 1</p>
+
+<p>How many variables are included in this data set?</p>
+
+<pre><code class="r">names(present)
+</code></pre>
+
+<pre><code>## [1] &quot;year&quot;  &quot;boys&quot;  &quot;girls&quot;
+</code></pre>
+
+<p>3</p>
+
+<p>#Question 2</p>
+
+<p>What command would you use to view just the counts of girls born?</p>
+
+<pre><code class="r">present$girls
+</code></pre>
+
+<pre><code>##  [1] 1148715 1223693 1364631 1427901 1359499 1330869 1597452 1800064
+##  [9] 1721216 1733177 1730594 1827830 1875724 1900322 1958294 1973576
+## [17] 2029502 2074824 2051266 2071158 2078142 2082052 2034896 1996388
+## [25] 1967328 1833304 1760412 1717571 1705238 1753634 1816008 1733060
+## [33] 1588484 1528639 1537844 1531063 1543352 1620716 1623885 1703131
+## [41] 1759642 1768966 1794861 1773380 1789651 1832578 1831679 1858241
+## [49] 1907086 1971468 2028717 2009389 1982917 1951379 1930178 1903234
+## [57] 1901014 1895298 1925348 1932563 1981845 1968011 1963747
+</code></pre>
+
+<p>#Question 3</p>
+
+<p>Is there an apparent trend in the number of girls born over the years? How would you describe it?</p>
+
+<pre><code class="r"># Plot girls born per year against boys plot(x,y) is the form
+
+plot(present$year, present$girls)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-4"/> </p>
+
+<pre><code class="r"># Now add a line
+plot(present$year, present$girls, type = &quot;line&quot;)
+</code></pre>
+
+<pre><code>## Warning in plot.xy(xy, type, ...): plot type &#39;line&#39; will be truncated to
+## first character
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-4"/> </p>
+
+<p>Answer </p>
+
+<p>There is initially an increase in the number of girls born, which peaks around 1960. After 1960 there is a decrease in the number of girls born, but the number begins to increase again in the early 1970s. Overall the trend is an increase in the number of girls born in the US since the 1940s.</p>
+
+<p>#Question 4</p>
+
+<p>In what year did we see the most total number of births in the U.S.? Hint: You can refer to the help files or the R reference card (<a href="http://cran.r-project.org/doc/contrib/">http://cran.r-project.org/doc/contrib/</a> Short-refcard.pdf) to find helpful commands.</p>
+
+<pre><code class="r">present$totals = present$girls + present$boys
+sort.int(present$totals, index.return = TRUE)
+</code></pre>
+
+<pre><code>## $x
+##  [1] 2360399 2513427 2735456 2794800 2808996 2936860 3136965 3144198
+##  [9] 3159958 3167788 3258411 3288672 3326632 3333279 3494398 3501564
+## [17] 3520959 3535068 3554149 3555970 3559529 3600206 3606274 3612258
+## [25] 3629238 3638933 3669141 3680537 3699940 3731386 3750850 3756547
+## [33] 3760358 3760561 3809394 3846986 3880894 3891494 3899589 3902120
+## [41] 3909510 3941553 3952767 3959417 4000240 4017362 4021726 4025933
+## [49] 4027490 4040958 4047295 4058814 4065014 4098020 4110907 4158212
+## [57] 4163090 4167362 4203812 4244796 4254784 4257850 4268326
+## 
+## $ix
+##  [1]  1  2  6  5  3  4 34 36 35 37 33  7 38 39 40 29 28  9 11 32 10 30 27
+## [24] 41 42 44 45 43  8 31 12 47 26 46 48 13 58 57 56 14 49 59 55 60 54 15
+## [47] 63 62 25 50 16 61 53 24 52 51 17 23 19 20 18 21 22
+</code></pre>
+
+<pre><code class="r">present$year[22]
+</code></pre>
+
+<pre><code>## [1] 1961
+</code></pre>
+
+<p>1961</p>
+
+<p>#Question 5</p>
+
+<p>Now, make a plot of the proportion of boys over time, and based on the plot determine if the following statement is true or false: The proportion of boys born in the US has decreased over time.</p>
+
+<pre><code class="r">present$boys &gt; present$girls
+</code></pre>
+
+<pre><code>##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [15] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [29] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [43] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [57] TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+</code></pre>
+
+<p>Answer = TRUE</p>
+
+<p>#Question 6</p>
+
+<p>Which of the following is true?</p>
+
+<p>Answer = Every year there are more boys born than girls.</p>
+
+<p>#Question 7</p>
+
+<p>Make a plot that displays the boy-to-girl ratio for every year in the data set. What do you see?</p>
+
+<pre><code class="r">#Now get the total births by adding
+
+present$babies &lt;- present$boys + present$girls
+
+head(present$babies)
+</code></pre>
+
+<pre><code>## [1] 2360399 2513427 2808996 2936860 2794800 2735456
+</code></pre>
+
+<pre><code class="r"># Using that newly created variable as the denominator, calculate the
+# proportoin of boys born in a give year
+
+present$proportionBoys &lt;- present$boys/present$babies
+
+head(present$proportionBoys)
+</code></pre>
+
+<pre><code>## [1] 0.5133386 0.5131376 0.5141926 0.5138001 0.5135613 0.5134745
+</code></pre>
+
+<pre><code class="r">plot(present$year, present$proportionBoys)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-7"/> </p>
+
+<pre><code class="r"># In what years to boys outnumber girls?
+
+present$boysGreater &lt;- present$boys &gt; present$girls
+
+head(present$boysGreater)
+</code></pre>
+
+<pre><code>## [1] TRUE TRUE TRUE TRUE TRUE TRUE
+</code></pre>
+
+<pre><code class="r"># Check to make sure all the variables are in order with the head() command.
+
+head(present$babies)
+</code></pre>
+
+<pre><code>## [1] 2360399 2513427 2808996 2936860 2794800 2735456
+</code></pre>
+
+<pre><code class="r">head(present$year)
+</code></pre>
+
+<pre><code>## [1] 1940 1941 1942 1943 1944 1945
+</code></pre>
+
+<pre><code class="r"># Plot the boy-girl ratio for all years
+
+present$ratio &lt;- present$boys/present$girls
+
+plot(present$year, present$ratio)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAk1BMVEUAAAAAADoAAGYAOjoAOmYAOpAAZrY6AAA6ADo6AGY6OmY6OpA6ZrY6kLY6kNtmAABmADpmAGZmOgBmOpBmZjpmZmZmtttmtv+QOgCQOjqQOmaQZgCQZpCQkDqQtpCQ27aQ29uQ2/+2ZgC2Zjq225C2/7a2///bkDrb25Db/7bb/9vb////tmb/25D//7b//9v///982J1+AAAACXBIWXMAAAsSAAALEgHS3X78AAAPTUlEQVR4nO2diZrayBVGZSem7fEEvCShPeMkhiTNOM2i93+6aMMNBrprk2r5z/lmRtMfXIE4qrollaqqqkGSKvYXgDggXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhQf8RWkzIjiPWJhbBAvCuJFQbwoiBcF8aIgXhTEi4J4URAvSlriX7yTCKFISnzl+YlgDuJFQbwoSYknx09HWuJhMhAvirf43V0121TV6weLWGr0+PiKP3xZ1ZtZ4//9o3EsbbgE8BW///hQb+b91jQW8QlAiRclRI6fk+Pzg1a9KIgXJUTjbr+oqjcXKR7xSRNAfNeg3/1qHwsRCSC+a9DbXM5BAniLX7z69tuD3eUcJIB/4+5wX83qrdXlHMSHVr0oiBclxJ27lpOq3nAENkTF+179/bLbbi8v5BGfMiFu4JxubWIhIpR4UbxzfHu/trLsnYP40KoXBfGihBJP4y4zKPGiIF4UxIuCeFH8++OHG/OXF/KITxnvEn+4nzvHQjz8q/r9h5VzLESDHC8K4kVBvCiIFwXxoiBeFMSLgnhREC8K4kVBvCiIFwXxoiBeFMSLElE842ljEk985bl78ALxoiBeFHK8KLTqRUG8KIgXBfGiBJjubHm4Z/bq7Agx+dF6yVy22RFgurN2WRpmxMgN76q+Ke7beV1vZw6xEA//xt26GyV96R3xSUOrXhTEixKgccdiRDkSQDyLEeVIAPEsRpQj/pMfsRhRlvg37liMKEto1YuCeFEC9M6xGFGOhOida2FpkswIcQPndGsTCxGhxIvineO9FyOiMRCF6K16xlXEAfGihBLv3LhDfByil3hyfBzii4coIF4UxIvi3x8ffjEisv4EeJf48IsR0c6fAv+qPsxiRCelHPFTkEiOP5WN+ClIUDw5fgpSFA8TkIh4SvnUpCIeJgbxoiBeFMSLgnhREC8K4kVBvCiIFwXxokwmvrx7snkf0VTiy+uFyfyIEO9K5keE+Be5UaVnfEQt5PiXuCk42yPqoFX/EpmX7Fsg/iUQH3jX2ZB3lX4LxIuCeFHCiN+9u5wJBfFJk+LYOZgA7xK/XzTKKfHZEaCq3y/e/IH43AiS43d3V2Y7Q3zS0KoXBfGieLfqWYwoTwKIZzGiHAkgnsWIcsT/Bg6LEWWJf+OOxYiyZOJWfZldnDkyrfhCH2rIEW/xVosRIT4ZfMXbLU2C+GQIcQPndPtCrEWOpzkwKtOWeAuoHMYlQH+852JEz3xy9y8FfxSS7aQZxB836A9MsuIH1/2/1PvBCSV+rHv1iB+JdEv8cS/VU4WfJJlmoeTFD/tK9tdN+Zx8jkzEpwvig8bmQ9niD/fV1aerGFCRchZ6FiPx/YJDm6vmwy9GZMaov3emMm0wEt9fq125YuteDLIYkS2j1rC5Vt82eJd45137gXhPfHO8+679QLwn2bbqyfF+ZCse/DAQv//435tdrx67hqhQ4kXxv5xz3TVExaSqP96cS+lyDjyxKPGBdw1RIcc/Q8lXdWbiN5Kt+qLv45hV9R9W21m9mQXddfogvp/9QK5Vj/jDl1Xzz9XJ7Nx3nQEhcnyq7QSzHN8431bVrY53t11rkGytQat+XPIWX951/GQVcN7imwQfftcxmVBH1jn+9sBIj13HZFzxqbo+QzPH8/yOqPixCmXy472eMBG/e7uqm6u5V5aJPv2DD8iJ8mLEt5NetM9QX5n0wmfXRXGmvJQcv/kxjdW11t3urqsKxKc0zams95iU+OZibjO/Os1NXx20j90jPpuy3mOU4+/ah2/WV3N8L3w9Exefk/Ie31b9MOvV5k+XPTiZ/RJieD9suV90fTcb2dGymcLDlqKIdtKAb45nTZpMMRO/vXkZz5o0mWLYO7e89QbJNWmyu3a7gm+On3RNmkR+8Jxu0N3ErKpfP/O43XRr0qTyg4f8HtHO5ZwexChQfLxDyqk/PhXxnsX0NDpj8VZr0niSSI7348x16uKbPP7m+9VpzUZboaJYzl2nneMP9/Om1X61W9ZyTZp8CWYokYRlejnXiL96UadS4kM26JJIWBYl/voEh2OtSZMYiZTTcBjn+MQmOJwae/FpFOyb5HQ5FxVbj6lXEaHEF9+4s6UM8U1631TVzZ4ap10XThHi9x9WzT96EyN4cZYb0kv4ppdzTZlHvDMJFn/Dqr56tdpS1TuTrfjbsCaNCQWKj7YmzfFDkkueV0nva/p20sRak+bkM1L7SfPAt5PGfddBQLwrvp007rsOAuJd8e6kcd51GM4eZ0kukSZMQZ00U5T+cs6tgjppJhBfUGYxzfHhdx0cxNtgluPzmODQtR42j1MTn8hz9SNhY5Mc77/rZCioGFuAeMQ/83J3OWe5Mkk+P2Y59bcFpjdwmv/KrUlTNBaXc6ncspUsoMExfBBjVidT4ktMyRHOZZvLOcsLOsSbEuOQ8mvVIz7YZ7q/PFrss/stLscj3vmjMj8XUs3xo+w6IGclJveTYCKKE19gE2AUED8hKVVGRYg//UUTFp/UVytD/NnHJlSszkG8KGWJv5zuzDxWjZQqI1/xKpMfFYeveJnpzkqDEi+Kd44Xme6sOGjVi4J4UUI07liMyIHYl3YBxLMYkQPRb+YEEK+3GFEA8hc/5WJEBZG9+CkXI/IkdlY9J/a30WnVRy9jL9KfCzfPiLCnCuJ/ele8gth/wZtfc3gh1BccoXduvMWIvDASH7NaMBIf7AsK3as3ORURb/Zycb1zURsCJjk+GfEZlXgjkstQP5NMjqd3Lk90WvVwBuLTZPSUE0p8IY27VDi24cbzT4lPkuPdmnq0nxHxSYJ4VYZr+hrxmqSb4xNfjCj5+zHR8C7xkRcjep70u2Kj4V/VR12M6AUQf5NSc/zojaPcKVT8+DdAcqdw8XALxItSqHjq+JcoVTy8AOJFQbwoiBcF8aIgXhTEi4L4nPG4WyEhvtS7OT73JxXEF3v/FvHPoyfeoIpDfM7cEGxywArii83xt0C8KIhXhRwPt0C8KIg/ItYCRPxAudd81/EWv7urZpsCpkJBvM3LdX34sqo3swLmskW8zcv9TBibeQkzYpDjLV4uqMSrESLHz0vI8WrQqhcF8aKEEb97d1nTIz5pvFv1aU+FArfwLvH7RaOcEp8dAar6/eLNH4jPjSA5fnd35WoO8UlDq75gnrsZKSde6M7sWffDz8cd4s5dHosR9Sj1xZwe68Vxe9+rz2xpkkLEGxWrUcXnthhRGeINj+Lk9JAv8WXkeIfTN3iOZzGiCASot+Ra9WXgX28hXpRQ4nNp3MEAJb4ULGt/xBeCbXsP8YWAeFGmFs8TOKkwdY5PejEiuIl/VZ/yYkRwE3K8KIgXBfGiIF4UxIuiLb6IpzLOMD4iafFlPId1ivkRIT72lwgK4o0oRPxzz1TeDvJ6ebTYiSgix5/JJsfr4FZvIT57EK+KU8JCvCiIFwXxoiBeFMSLgnhREC8K4kVBvCiIFwXxoniL390tD/dVdTkFDuKTxld8O/nResnSJNnhPWjy40O7LA0zYuSGd1XfFPftvK63M4dYiId/427djZK+9I74pKFVLwriRQkjnqVJssO7Vc9UKHniXeJZjChPAlT1LEaUI0FyPIsR5QetelEQL0qA3rmsFiOCgRC9cy3ZLE0CPQF65862NrFgyBi1JyU+fUaZvyHADRwWIxqZNMWPEwsnIF4Vvxx/PTqUeBp3qXKjvqDElw7iRUG8KuPm+MCxMDY8gSOKd4lnMaI88a/qWYwoS8jxoiBeFMSLgnhREC8K4kVBvChjioeUGU980F0RPW004kWjES8ajXjRaMSLRiNeNBrxotHchBEF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aL4iu9mN97dDSPrupmS9otrS1a9GL2puvF5jtGH++rVyvWzN90TK0vXzx42E0W38w4+/crnGws8xW97V8t6033upvlKrfzNlYVMXoped7NreURv3zy6Rte1R3Q7xGzjHt1vjKPbT9u9XQ3vP9/Y4Cd+/eqfzbnbrkzWDbDb/fJp2c2ZcnWW8+eju6WuatfoYaIWx+i6/z0do7vNxwef6P4AjKK7RaHWy+H95xuDz/5BiKr++PMdvnxrzrynH9MquhuO7Ry9e/97W9U7Rjd/teXF9Zv3Jd75m59ujKIvw6yie0KI72qr5mffzNsqp50J0eYHGKKb6qs5c1au0XfdOeMYPYwIdo3uE6xj9LCxiW4Hrg/vP98YRQ+Eatz95Ut72h0cSvwQ3f29XjpGO5z5Z5/dzdvp+tnNKbt9/eD62WcHYBK8X8xrn/qiJ4j4usuufdt4bpNvTqK77Y/cZRu9/2yXKX/+7PW8tmkhnEUPxc3juK1aCG3l9uO7xs3xXZLr2pRtiW8rItMW5kl0+/MdfntwjG5b9V2N4xbdtywdo4cS7xg9bIyje+/H959vbAhS4rfHxaadruOH6KbCcLkSH6KbMJdr6WN0X006Rm+9vvnTARhF/3TPIdZ1POQK4kVBvCiIFwXxoiBeFMSLgnhREC8K4kVBvCiIFwXxoiBeFMSLgnhREC8K4kVBvCiIFwXxp7QPQW67ZxmLB/GnNOJ3b799/X65ZHpxiIjff/xHN7bul0+vH4YnsbfV8YHs1+1Att+bct7+/3/e/+/r4/E5/eGt/cjkLjj2gQRDRfzizWM7zKkdjbDuBh+0g0+6kRjdX7u7bjhaOyhl8fdW/Hbe/jO8tR2Z/O5hGMpQCDLil+1wmeMIlnbM0jCGov+rG776rtvU66qa1/vPj/9eHcdO1/XxPeWgIr7VvF72o1SrbuRLU3/3I13bv07FH75+XywPX/71+fH41vZceI34HOmH7/cl/qnl1lTuw19P4rezw9fHtor/2/xHaW+qi+NZUQwq4hezIYd3Wb353+0wpH19TO6D2/2HplXfTzdSn774doX4DNl/+GtXvb/r2/E/qu/jX4P4w33bAOyu4w+/Pb11U1V//rREfIbYzBpwaFv19e7X8b5NCiD+Ot0EKSUjIh5+BvGiIF4UxIuCeFEQLwriRUG8KIgXBfGiIF4UxIuCeFEQLwriRUG8KP8HMtFLi5rVxToAAAAASUVORK5CYII=" alt="plot of chunk unnamed-chunk-7"/> </p>
+
+<pre><code class="r">plot(present$year, present$ratio, type = &quot;line&quot;)
+</code></pre>
+
+<pre><code>## Warning in plot.xy(xy, type, ...): plot type &#39;line&#39; will be truncated to
+## first character
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-7"/> </p>
+
+<pre><code class="r">#Now Find out in what year was the difference between the number of boys and girls greatest.
+
+# Create the variable of the absolute difference for each year
+present$absoluteDif &lt;- present$boys - present$girls
+
+# Check that your code did what you expected it to do.
+head(present$absoluteDif)
+</code></pre>
+
+<pre><code>## [1] 62969 66041 79734 81058 75802 73718
+</code></pre>
+
+<pre><code class="r"># Use the command max() on the newly created variable to find the answer.
+max(present$absoluteDif)
+</code></pre>
+
+<pre><code>## [1] 105244
+</code></pre>
+
+<p>Answer = There is initially a decrease in the boy-to-girl ratio, and then an increase between 1960 and 1970, followed by a decrease.</p>
+
+<p>#Question 8</p>
+
+<p>Calculate absolute differences between number of boys and girls born in each year, and determine which year out of the present data had the biggest absolute difference in the number of girls and number of boys born?</p>
+
+<p>Answer = 1963</p>
+
+<p>Questions 9 to 13 should be answered by the individuals.</p>
+
+</body>
+
+</html>
+

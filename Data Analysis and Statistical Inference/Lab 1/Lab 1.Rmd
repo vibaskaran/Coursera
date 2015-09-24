@@ -1,0 +1,160 @@
+---
+title: "Data Analysis and Statistical Inference Lab 1"
+author: "Baskaran Viswanathan"
+date: "September 24, 2015"
+output: html_document
+---
+
+
+```{r}
+source("http://www.openintro.org/stat/data/cdc.R")
+
+# To look at the data
+
+cdc
+
+# To print out the data
+
+print(cdc)
+
+# dimensions of this data frame
+
+dim(cdc)
+
+# The names of columns
+
+names(cdc)
+
+# This will print your data set in the console:
+
+head(cdc)
+
+```
+
+#Question 1
+
+How many cases and how many variables are there in this data set?
+
+```{r }
+
+names(cdc)
+
+```
+
+Answer - 20,000 cases; 9 variables
+
+#Question 2
+
+What type of variable is genhlth?
+
+Answer - categorical, ordinal 
+
+#Question 3
+
+What type of variable is weight? 
+
+Answer - numerical, continuous
+
+#Question 4
+
+What type of variable is smoke100?
+
+Answer - categorical (not ordinal)
+
+
+
+#Question 5
+
+Create a numerical summary for gender. How many males are in the sample?
+
+```{r}
+
+table(cdc$gender)
+
+```
+
+Answer = TRUE
+
+#Question 6
+
+Compute the relative frequency distribution of genhlth. What proportion of the sample reports being in excellent health? Choose the closest answer.
+
+
+```{r}
+
+table(cdc$genhlt)
+
+table(cdc$genhlth) / length(cdc$genhlth)
+
+#excellent = .23285
+
+```
+
+#Question 7
+
+
+What does the mosaic plot reveal about smoking habits and gender?
+
+```{r }
+#The table command can be used to tabulate any number of variables that you provide. For example, to examine which participants have smoked across each gender, we could use the following.
+
+table(cdc$gender,cdc$smoke100)
+
+mosaicplot(table(cdc$gender,cdc$smoke100))
+
+gender_smokers = table(cdc$gender, cdc$smoke100)
+
+gender_smokers
+
+mosaicplot(gender_smokers)
+
+#Remember: 1 indicates that a respondent has smoked at least 100 cigarettes. > That males are more likely to smoke than females.
+
+```
+
+Answer - The mosaic plot shows that males are more likely to smoke than females.
+
+
+#Question 8
+
+How many observations are in the subset under23 and smoke that you created in the previous exercise, i.e. how many people in the sample are under the age of 23 and have smoked at least 100 cigarettes in their lifetime?
+
+```{r }
+
+#Create a new object called under23_and_smoke that contains all observations of respondents under the age of 23 that have smoked 100 cigarettes in their lifetime
+under23_and_smoke <- subset(cdc, age < 23 & smoke100 == 1) 
+summary(under23_and_smoke)
+# Add the last column(Gender) values m:305 +  f:315
+
+```
+
+Answer = 620
+
+#Question 9
+
+Which of the following is false based on the box plot of BMI vs. general health?
+
+```{r }
+bmi <- (cdc$weight / cdc$height^2) * 703
+#bmi = (cdc$weight / cdc$height ** 2) * 703
+boxplot(bmi ~ cdc$genhlth)
+
+```
+
+Answer - It shows boxplots of bmi for each self-reported general health bin. This figure suggests that people who have higher bmi's are more likely to report worse general health as well.
+
+exerany, or exercised in past month, is likely associated with better health, and lower bmi, since they are more likely to burn calories and weigh less. As the boxplot shows, those who have exercised in the past month have a slightly lower median bmi and a thinner iqr, although there are still many outliers.
+
+
+#Question 10
+
+Based on the plot you made in the previous exercise, which of the following is true about the relationship between weight and desired weight?
+
+```{r }
+plot(cdc$weight, cdc$wtdesire)
+
+```
+
+Answer - moderately strong positive linear association
+
+Questions 11 to 15 should be answered by the individuals.

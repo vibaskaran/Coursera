@@ -1,0 +1,170 @@
+---
+title: "Data Analysis and Statistical Inference - Lab 0"
+author: "Baskaran Viswanathan"
+date: "September 24, 2015"
+output: html_document
+
+---
+
+
+```{r}
+source("http://www.openintro.org/stat/data/present.R")
+
+# To look at the data
+
+present
+
+# To print out the data
+
+print(present)
+
+# dimensions of this data frame
+
+dim(present)
+
+# The names of columns
+
+names(present)
+
+# This will print your data set in the console:
+
+head(present)
+
+# To access the data in a single column of a data frame separately
+
+present$boys
+
+```
+
+#Question 1
+
+How many variables are included in this data set?
+
+```{r }
+names(present)
+```
+
+3
+
+#Question 2
+
+What command would you use to view just the counts of girls born?
+
+```{r}
+
+present$girls
+
+```
+
+#Question 3
+
+Is there an apparent trend in the number of girls born over the years? How would you describe it?
+
+```{r }
+# Plot girls born per year against boys plot(x,y) is the form
+
+plot(present$year, present$girls)
+
+# Now add a line
+plot(present$year, present$girls, type = "line")
+
+```
+
+Answer 
+
+There is initially an increase in the number of girls born, which peaks around 1960. After 1960 there is a decrease in the number of girls born, but the number begins to increase again in the early 1970s. Overall the trend is an increase in the number of girls born in the US since the 1940s.
+
+#Question 4
+
+In what year did we see the most total number of births in the U.S.? Hint: You can refer to the help files or the R reference card (http://cran.r-project.org/doc/contrib/ Short-refcard.pdf) to find helpful commands.
+
+```{r }
+present$totals = present$girls + present$boys
+sort.int(present$totals, index.return = TRUE)
+present$year[22]
+```
+
+1961
+
+#Question 5
+
+Now, make a plot of the proportion of boys over time, and based on the plot determine if the following statement is true or false: The proportion of boys born in the US has decreased over time.
+
+```{r}
+present$boys > present$girls
+
+```
+
+Answer = TRUE
+
+#Question 6
+
+Which of the following is true?
+
+Answer = Every year there are more boys born than girls.
+
+#Question 7
+
+Make a plot that displays the boy-to-girl ratio for every year in the data set. What do you see?
+
+```{r }
+#Now get the total births by adding
+
+present$babies <- present$boys + present$girls
+
+head(present$babies)
+
+# Using that newly created variable as the denominator, calculate the
+# proportoin of boys born in a give year
+
+present$proportionBoys <- present$boys/present$babies
+
+head(present$proportionBoys)
+
+plot(present$year, present$proportionBoys)
+
+# In what years to boys outnumber girls?
+
+present$boysGreater <- present$boys > present$girls
+
+head(present$boysGreater)
+
+# Check to make sure all the variables are in order with the head() command.
+
+head(present$babies)
+
+head(present$year)
+
+# Plot the boy-girl ratio for all years
+
+present$ratio <- present$boys/present$girls
+
+plot(present$year, present$ratio)
+
+plot(present$year, present$ratio, type = "line")
+
+#Now Find out in what year was the difference between the number of boys and girls greatest.
+
+# Create the variable of the absolute difference for each year
+present$absoluteDif <- present$boys - present$girls
+
+# Check that your code did what you expected it to do.
+head(present$absoluteDif)
+
+# Use the command max() on the newly created variable to find the answer.
+max(present$absoluteDif)
+
+
+
+
+```
+
+Answer = There is initially a decrease in the boy-to-girl ratio, and then an increase between 1960 and 1970, followed by a decrease.
+
+#Question 8
+
+Calculate absolute differences between number of boys and girls born in each year, and determine which year out of the present data had the biggest absolute difference in the number of girls and number of boys born?
+
+Answer = 1963
+
+Questions 9 to 13 should be answered by the individuals.
