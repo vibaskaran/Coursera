@@ -141,10 +141,11 @@ boxplot(bmi ~ cdc$genhlth)
 
 ```
 
-Answer - It shows boxplots of bmi for each self-reported general health bin. This figure suggests that people who have higher bmi's are more likely to report worse general health as well.
+It shows boxplots of bmi for each self-reported general health bin. This figure suggests that people who have higher bmi's are more likely to report worse general health as well.
 
 exerany, or exercised in past month, is likely associated with better health, and lower bmi, since they are more likely to burn calories and weigh less. As the boxplot shows, those who have exercised in the past month have a slightly lower median bmi and a thinner iqr, although there are still many outliers.
 
+Answer - The distributions of BMIs within each health status group is left skewed.
 
 #Question 10
 
